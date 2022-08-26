@@ -3,3 +3,194 @@
 font-family: 'Montserrat', sans-serif;
 font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif; */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+a{text-decoration: none;}
+li{list-style: none;}
+/* ********************************************* */
+#hero{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px 70px;
+    overflow: hidden;
+}
+#hero::before{
+    position: absolute;
+    content: '';
+    width: 320px;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    background: #444;
+    z-index: -3;
+}
+#hero::after{
+    position: absolute;
+    content: 'healthy';
+    bottom: 0;
+    left: 0;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 15rem;
+    opacity: .1;
+    z-index: -2;
+}
+.head{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.head .brand{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2rem;
+    display: inline-block;
+}
+.head .brand span{
+    color: #77f78a;
+}
+.nav ul{
+    position: relative;
+    display: flex;
+    gap: 16px;
+}
+.nav ul li{
+    margin-right: 16px;
+    padding: 0px 1rem;
+}
+.nav ul li a{
+    position: relative;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px;
+    color: #333;
+}
+.nav ul li:nth-child(3) a, 
+.nav ul li:nth-child(4) a{
+    color: #fff ;
+}
+.nav ul li:nth-child(1) a::before{
+    width: 60%;
+}
+.nav ul li a::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    z-index: -1;
+    height: 100%;
+    background: #77f78a;
+    transition: all .3s ease-in;
+}
+.nav ul li a:hover::before{
+    width: 60%;
+}
+.menuIcon{
+    display: none;
+    position: fixed;
+    right: 50px;
+    top: 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    z-index: 1000;
+    cursor: pointer;
+}
+/* -----------------End Nav------------------- */
+
+
+
+
+
+
+
+
+@media (max-width: 992px) {
+    #hero{
+        padding-left: 40px;
+    }
+    .head .brand{
+        font-size: 1.5em;
+    }
+    #hero::after{
+        font-size: 10rem;
+    }
+    .nav ul{
+        gap: 0;
+    }
+    .nav ul li{
+        padding: 0 15px;
+    }
+}
+@media (max-width: 768px) {
+    #hero::after{
+        font-size: 8rem;
+        transform: rotate(-30deg);
+        bottom: 5rem;
+        left: 1rem;
+    }
+    .menuIcon{display: block;}
+    .nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        transform: translateX(100%);
+        transition: all .4s ease-in;
+        background: rgba(0, 0, 0, .5);
+    }
+    #hero.show .nav{
+        transform: translateX(0);
+    }
+    #hero.show::before{
+        width: 0;
+    }
+    .nav ul{
+        padding-top: 70px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 400px;
+        background: #444444;
+        height: 100%;
+        text-align: center;
+        display: block;
+    }
+    #hero.show ul{
+        clip-path: circle(70% at 100% 0%);
+    }
+    .nav ul li{
+        display: block;
+        margin-bottom: 1rem;
+    }
+    .nav ul li a{
+        z-index: 11111;
+        color: #fff;
+    }
+    #hero::after{
+        z-index: 1;
+    }
+    .nav ul li a::before{
+        z-index: -2;
+    }
+    .nav ul li:nth-child(1) a::before{
+        width: 0%;
+    }
+    .nav ul li:nth-child(1) a:hover::before{
+        width: 60%;
+    }
+    .head .brand{
+        z-index: 10;
+        font-size: 1rem;
+}
+}
