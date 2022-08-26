@@ -55,7 +55,7 @@ li{list-style: none;}
     display: inline-block;
 }
 .head .brand span{
-    color: #77f78a;
+    color: #0cf62f;
 }
 .nav ul{
     position: relative;
@@ -89,7 +89,7 @@ li{list-style: none;}
     width: 0;
     z-index: -1;
     height: 100%;
-    background: #77f78a;
+    background: #0cf62f;
     transition: all .3s ease-in;
 }
 .nav ul li a:hover::before{
@@ -107,12 +107,117 @@ li{list-style: none;}
 }
 /* -----------------End Nav------------------- */
 
+/* ****************************************** */
+.hero_content{
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.left{
+    max-width: 400px;
+    margin-right: 16px;
+}
+.left div{
+    display: none;
+    opacity: 0;
+}
+.left div.active{
+    display: initial;
+    opacity: 1;
+}
+.left .text_box h2{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 3rem;
+    color: #444;
+    line-height: 60px;
+    padding-bottom: 1rem;
+}
+.left .text_box p{
+    letter-spacing: 1px;
+    font-size: 1rem;
+    padding-bottom: 2rem;
+}
+.left .text_box button{
+    position: relative;
+    display: inline-block;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    background: transparent;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.left .text_box button::before{
+    position: absolute;
+    content: '';
+    width: 45%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 8px 0 0 8px;
+    z-index: -1;
+    background: #0cf62f;
+    transition: all .3s ease-in;
+}
+.left .text_box button:hover::before{
+    width: 100%;
+    border-radius: 8px;
+}
+.right .img_box{
+    max-width: 400px;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.right .img_box img{
+    display: none;
+    max-width: 400px;
+    max-height: 500px;
+    opacity: 0;
+}
+.right .img_box img.active{
+    display: initial;
+    opacity: 1;
+}
+/* -----------End hero content-------------- */
 
-
-
-
-
-
+/* **************************************** */
+.social-icon{
+    max-width: 100%;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.social-icon .icons img{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    padding: 5px;
+    margin-right: 1rem;
+    transition: .4s ease;
+    cursor: pointer;
+}
+.social-icon .icons img:hover{
+    transform: translateY(-5px) scale(1.1);
+}
+.social-icon .btn{
+    display: flex;
+}
+.social-icon .btn button{
+    margin: 0 1rem;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 40px;
+    border: none;
+    cursor: pointer;
+}
 
 @media (max-width: 992px) {
     #hero{
@@ -130,7 +235,21 @@ li{list-style: none;}
     .nav ul li{
         padding: 0 15px;
     }
+
+
+    .left .text_box h2{
+        font-size: 2.3rem;
+        line-height: 45px;
+    }
+    .left .text_box p{
+        font-size: .9rem;
+    }
+    .right .img_box{
+        max-width: 350px;
+    }
 }
+
+/* *************** Tablette ***************** */
 @media (max-width: 768px) {
     #hero::after{
         font-size: 8rem;
@@ -151,6 +270,7 @@ li{list-style: none;}
     }
     #hero.show .nav{
         transform: translateX(0);
+        z-index: 100;
     }
     #hero.show::before{
         width: 0;
@@ -190,7 +310,16 @@ li{list-style: none;}
         width: 60%;
     }
     .head .brand{
-        z-index: 10;
+        z-index: 101;
         font-size: 1rem;
-}
+    }
+
+    .left .text_box h2{
+        font-size: 2rem;
+        line-height: 40px;
+        padding-bottom: .7rem;
+    }
+    .left .text_box p{
+        font-size: .8rem;
+    }
 }
